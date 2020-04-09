@@ -1,9 +1,15 @@
 import unittest
 from pathlib import Path
 
+import sort_files
+
 
 class TestFileOrdering(unittest.TestCase):
     
+    @classmethod
+    def setUpClass(cls):
+        sort_files.main()
+
     def test_files_sorted_exist(self):
         self.assertTrue(Path('./files_sorted').exists())
 
