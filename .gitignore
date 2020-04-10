@@ -1,4 +1,6 @@
 __pycache__/
 files/
 files_sorted/
+sample_files/
+.pytest_cache/
 data.csv
