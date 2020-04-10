@@ -18,7 +18,7 @@ file_names = [
 
 
 class TestFileOrdering(unittest.TestCase):
-    
+
     @classmethod
     def setUpClass(cls):
         Path('files').mkdir()
@@ -26,6 +26,10 @@ class TestFileOrdering(unittest.TestCase):
             Path('files/', f).touch()
 
         sort_files.main()
+
+    @classmethod
+    def tearDownClass(cls):
+        Path('files').rmdir()
 
     def test_files_sorted_exist(self):
         self.assertTrue(Path('./files_sorted').exists())
@@ -48,7 +52,7 @@ class TestFileOrdering(unittest.TestCase):
             '9_socks.txt'
         ]
 
-        actual_files =[f.name for f in Path('./files_sorted').iterdir()]
+        actual_files = [f.name for f in Path('./files_sorted').iterdir()]
         self.assertEqual(files, actual_files)
 
 
